@@ -1,0 +1,61 @@
+body {
+    background-color: #F9F4F1;
+    margin: 0px;
+    
+}
+
+#bod-div {
+    /* margin-bottom: auto; */
+    min-height: 80vh;
+}
+
+#ind-box {
+    text-align: center;
+    vertical-align: middle;
+	padding: 100px;
+	margin: auto;
+	margin-bottom: 5%;
+    
+}
+
+h2, h3 {
+    color: #0A0A0A;
+}
+
+#ind-hr {
+    max-width: 30%;
+    background-color: #0A0A0A;
+}
+
+/* Cartoon Page CSS */
+
+#cart-h {
+    margin-left: 10px;
+}
+
+#cartoon-canvas {
+    border: 1px solid black;
+    margin: 2%;
+}
+
+/* Footer CSS */
+footer {
+    background-color: #0A0A0A;
+    padding: 5%;
+    margin-bottom: 0%;
+    
+}
+
+#foot-a {
+    text-decoration: none;
+    color: #F9F4F1;
+    text-align: center;
+}
+
+#foot-p {
+    text-align: center;
+}
+
+#foot-a:hover{
+    color: #507DBC;
+}
