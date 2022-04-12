@@ -29,11 +29,11 @@ h2, h3 {
 
 /* Cartoon Page CSS */
 
-#cart-h {
+#cart-h, #lab-h {
     margin-left: 10px;
 }
 
-#cartoon-canvas {
+#cartoon-canvas, #lab1-canvas {
     border: 1px solid black;
     margin: 2%;
 }
