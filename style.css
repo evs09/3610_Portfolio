@@ -51,11 +51,23 @@ h2, h3 {
 
 }
 
-
 /* Lab 3 CSS */
 
 #form-div{
     margin: 20px;
+}
+
+/* Resume Lab CSS */
+
+#resume-body {
+    background-color: #f5f3f4;
+}
+
+#resume-name{
+    text-align: center;
+    margin: 20px;
+    padding: 15px;
+
 }
 
 /* Footer CSS */
