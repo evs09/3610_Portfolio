@@ -6,7 +6,7 @@ body {
 
 #bod-div {
     /* margin-bottom: auto; */
-    min-height: 80vh;
+    min-height: 75vh;
 }
 
 #ind-box {
@@ -27,15 +27,35 @@ h2, h3 {
     background-color: #0A0A0A;
 }
 
-/* Cartoon Page CSS */
+/* Other Pages CSS */
 
 #cart-h, #lab-h {
-    margin-left: 10px;
+    margin-left: 3%;
+
 }
 
-#cartoon-canvas, #lab1-canvas {
+#cartoon-canvas, #lab1-canvas, #lab2-canvas {
     border: 1px solid black;
     margin: 2%;
+}
+
+/* Lab 2 CSS */
+
+#lab2-canvas {
+    margin-left: 30%;
+}
+
+#lab2-btn {
+    margin-left: 50%;
+    padding: 10px;
+
+}
+
+
+/* Lab 3 CSS */
+
+#form-div{
+    margin: 20px;
 }
 
 /* Footer CSS */
