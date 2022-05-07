@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <link rel="stylesheet" href="../style.css" />
+    </head>
+    <body>
+        <div id="bod-div">
+            <h1 id="data-h">Data Visualization</h1>
+
+            <div class="data-canvas-area">
+                <h4 class="data-h4">Chart 1 <a href="https://data.cityofnewyork.us/Education/2021-2022-Average-Class-Size-Pilot/tfa9-aubf">(src.)</a></h4><br />
+                <canvas id="bar-chart" width="800" height="450"></canvas>
+
+            </div>
+
+            <div class="data-canvas-area">
+                <h4 class="data-h4">Chart 2 <a href="Source: https://data.cityofnewyork.us/dataset/Golf-Courses/uwmn-v7un">(src.)</a></h4>
+                <canvas id="pie-chart" width="800" height="450"></canvas>
+
+            </div>
+
+        </div>
+
+        <footer>
+            <p id="foot-p">
+                <a id="foot-a" href="../index.html">Home</a>
+            </p>
+        </footer>
+    </body>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.5.0/Chart.min.js"></script>
+    <script src="./data-script.js"></script>
+</html>

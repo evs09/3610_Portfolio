@@ -29,12 +29,12 @@ h2, h3 {
 
 /* Other Pages CSS */
 
-#cart-h, #lab-h {
+#cart-h, #lab-h, #anim-h, #data-h{
     margin-left: 3%;
 
 }
 
-#cartoon-canvas, #lab1-canvas, #lab2-canvas {
+#cartoon-canvas, #lab1-canvas, #lab2-canvas, #anim-canvas {
     border: 1px solid black;
     margin: 2%;
 }
@@ -69,6 +69,16 @@ h2, h3 {
     padding: 15px;
 
 }
+
+/* Data CSS */
+.data-h4{
+    text-align: center;
+}
+
+.data-canvas-area {
+    padding: 15px;
+}
+
 
 /* Footer CSS */
 footer {

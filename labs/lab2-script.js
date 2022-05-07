@@ -8,13 +8,13 @@ sprites.src = './images/spritesheet-lab2.png';
 function setup() {
     context.fillStyle = "#abbfe0";
     context.fillRect(0, 0, canvas.width, canvas.height);
-    
+
     
 }
 
 function btnClick() {
     //89 x 125
-    context.drawImage(sprites, 92, 0, 89, 125, 45, 0, 89, 125);
+    //context.drawImage(sprites, 92, 0, 89, 125, 45, 0, 89, 125);
     let xInit = 92;
     context.fillStyle = "#abbfe0";
 
