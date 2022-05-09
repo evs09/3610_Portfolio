@@ -34,7 +34,7 @@ h2, h3 {
 
 }
 
-#cartoon-canvas, #lab1-canvas, #lab2-canvas, #anim-canvas {
+#cartoon-canvas, #lab1-canvas, #lab2-canvas, #anim-canvas, #lab5-canvas{
     border: 1px solid black;
     margin: 2%;
 }

@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <link rel="stylesheet" href="../../style.css" />
+    <script src="https://cdn.jsdelivr.net/npm/phaser@3.15.1/dist/phaser-arcade-physics.min.js"></script>
+</head>
+
+<body>
+    <script>
+        var config = {
+            type: Phaser.AUTO,
+            width: 717,
+            height: 500,
+            backgroundColor: '#efefef',
+            scene: {
+                preload: preload,
+                create: create,
+                update: update
+            }
+        };
+
+        var game = new Phaser.Game(config);
+
+        function preload() {
+            this.load.image('bg', './my-assets/beach-bg.jpeg');
+            this.load.image('umb', './my-assets/umbrella.png');
+            this.load.image('sc', './my-assets/sandcastle.png');
+            this.load.image('bkt', './my-assets/bucket.png');
+            this.load.image('str', './my-assets/star-shell.png');
+
+        }
+
+        function create() {
+            this.add.image(0, 140, 'bg').setOrigin(0,0);
+
+            var umbrella = this.add.sprite(10, 30, 'umb').setOrigin(0,0);
+            umbrella.setInteractive();
+
+            var sandcastle = this.add.sprite(150, 30, 'sc').setOrigin(0,0);
+            sandcastle.setInteractive();
+
+            var bucket = this.add.sprite(270, 30, 'bkt').setOrigin(0,0);
+            bucket.setInteractive();
+
+            var star = this.add.sprite(370, 30, 'str').setOrigin(0,0);
+            star.setInteractive();
+            
+            this.input.setDraggable(umbrella);
+            this.input.setDraggable(sandcastle);
+            this.input.setDraggable(bucket);
+            this.input.setDraggable(star);
+
+            this.input.on('drag', function (pointer, gameObject, dragX, dragY) {
+                gameObject.x = dragX;
+                gameObject.y = dragY;
+
+            });
+
+        }
+
+        function update() {
+        }
+
+
+    </script>
+
+    </div>
+
+    </div>
+
+    
+
+    <script src="./lab5-script.js"></script>
+</body>
+
+</html>
