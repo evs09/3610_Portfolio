@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <link rel="stylesheet" href="../../style.css" />
+    <script src="https://cdn.jsdelivr.net/npm/phaser@3.15.1/dist/phaser-arcade-physics.min.js"></script>
+</head>
+
+<body>
+
+    <script>
+        var config = {
+            type: Phaser.AUTO,
+            width: 800,
+            height: 600,
+            physics: {
+                default: 'arcade',
+                arcade: {
+                    gravity: { y: 300 },
+                    debug: false
+                }
+            },
+            scene: {
+                preload: preload,
+                create: create,
+                update: update
+            }
+        };
+
+        var game = new Phaser.Game(config);
+        
+        var score = 0;
+        var lives = 3;
+        var livesText;
+        var scoreText;
+        var titleText;
+        var myNameText;
+        var infoText;
+
+        function preload (){
+            this.load.image('sky', './assets/sky.png');
+            this.load.image('ground', './assets/ground.png');
+            this.load.image('platform', './assets/platform.png');
+            this.load.image('poke', 'assets/pokeball.png');
+            this.load.image('fire', 'assets/charmander.png');
+            this.load.spritesheet('char', 
+                'assets/char-sprite.png',
+                { frameWidth: 64, frameHeight: 64 }
+            );
+
+        }
+
+        function create (){
+            this.add.image(400, 300, 'sky');
+            cursors = this.input.keyboard.createCursorKeys();
+            platforms = this.physics.add.staticGroup();
+
+            platforms.create(400, 568, 'ground');
+
+            platforms.create(500, 430, 'platform').setOrigin(0,0);
+            platforms.create(50, 250, 'platform');
+            platforms.create(590, 220, 'platform').setOrigin(0,0);
+            platforms.create(250, 300, 'platform').setOrigin(0,0);
+
+            pokes = this.physics.add.group({
+                key: 'poke',
+                repeat: 0,
+                setXY: { x: Phaser.Math.Between(1, 800), y: 0 },
+            });
+
+            fires = this.physics.add.group();
+
+            player = this.physics.add.sprite(100, 460, 'char');
+            player.setBounce(0.2);
+            player.setCollideWorldBounds(true);
+
+            this.physics.add.collider(pokes, platforms);
+            this.physics.add.overlap(player, pokes, collectPokes, null, this);
+
+            this.physics.add.collider(fires, platforms);
+            this.physics.add.collider(player, fires, hitFire, null, this);
+
+            this.anims.create({
+                key: 'left',
+                frames: this.anims.generateFrameNumbers('char', { start: 0, end: 3 }),
+                frameRate: 10,
+                repeat: -1
+            });
+
+            this.anims.create({
+                key: 'turn',
+                frames: [ { key: 'char', frame: 4 } ],
+                frameRate: 20
+            });
+
+            this.anims.create({
+                key: 'right',
+                frames: this.anims.generateFrameNumbers('char', { start: 5, end: 8 }),
+                frameRate: 10,
+                repeat: -1
+            });
+
+            player.body.setGravityY(300)
+            this.physics.add.collider(player, platforms);
+
+            pokes.children.iterate(function (child) {
+                child.setBounceY(Phaser.Math.FloatBetween(0.2, 0.4));
+            });
+
+            scoreText = this.add.text(16, 16, 'Score: 0', { fontSize: '32px', fill: '#000' });
+            livesText = this.add.text(640, 16, 'Lives: 3', { fontSize: '32px', fill: '#000' });
+
+        }
+
+        function update (){
+                if (cursors.left.isDown)
+                {
+                    player.setVelocityX(-160);
+
+                    player.anims.play('left', true);
+                }
+                else if (cursors.right.isDown)
+                {
+                    player.setVelocityX(160);
+
+                    player.anims.play('right', true);
+                }
+                else
+                {
+                    player.setVelocityX(0);
+
+                    player.anims.play('turn');
+                }
+
+                if (cursors.up.isDown && player.body.touching.down)
+                {
+                    player.setVelocityY(-400);
+                }
+            
+        }
+
+        function collectPokes (player, star){
+            star.disableBody(true, true);
+
+            score += 10;
+            scoreText.setText('Score: ' + score);
+
+            if(score == 10){
+                var x = (player.x < 400) ? Phaser.Math.Between(400, 800) : Phaser.Math.Between(0, 400);
+
+                var fire = fires.create(x, 16, 'fire');
+                fire.setBounce(1);
+                fire.setCollideWorldBounds(true);
+                fire.setVelocity(Phaser.Math.Between(-200, 200), 20);
+            }
+
+            if(pokes.countActive() === 0){
+                pokes.children.iterate(function (child) {
+                    child.enableBody(true, Phaser.Math.Between(1, 800), 0, true, true);
+                    
+                });
+            }
+
+        }
+
+        function hitFire(player, fire){
+            //this.physics.pause();
+
+            player.setTint(0xff0000);
+
+            player.anims.play('turn');
+            lives--;
+
+            livesText.setText('Lives: ' + lives);
+
+            if(lives === 0){
+                gameOver = true;
+                this.physics.pause();
+            }
+            else{
+                //this.physics.resume();
+                player.clearTint();
+                console.log("resumed");
+                var x = (player.x < 400) ? Phaser.Math.Between(400, 800) : Phaser.Math.Between(0, 400);
+                fire.setX(x);
+                fire.setY(Phaser.Math.Between(1, 600));
+
+            }
+        }
+
+    </script>
+
+</body>
+</html>

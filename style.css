@@ -79,6 +79,37 @@ h2, h3 {
     padding: 15px;
 }
 
+/*Lab 6 CSS*/
+
+#train-btn {
+    position: absolute;
+    top: 29%;
+    left: 20%;
+}
+
+#motorcycle-btn {
+    position: absolute;
+    top: 73%;
+    left: 83%;
+}
+
+#car-btn {
+    position: absolute;
+    top: 120%;
+    left: 22%;
+}
+
+#truck-btn {
+    position: absolute;
+    top: 110%;
+    left: 80%;
+}
+
+#pol-btn {
+    position: absolute;
+    top: 93%;
+    left: 52%;
+}
 
 /* Footer CSS */
 footer {

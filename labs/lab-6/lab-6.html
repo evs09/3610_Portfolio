@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <link rel="stylesheet" href="../../style.css" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    </head>
+    <body>
+
+        <h1 id="lab-h">Lab 6</h1>
+        <br />
+
+        <audio id="train-aud">
+            <source src="./train-pass.mp3" type="audio/mpeg">
+            Your browser does not support audio
+        </audio>
+
+        <audio id="motor-aud">
+            <source src="./motorcycle.mp3" type="audio/mpeg">
+            Your browser does not support audio
+        </audio>
+
+        <audio id="car-aud">
+            <source src="./car-honk.mp3" type="audio/mpeg">
+            Your browser does not support audio
+        </audio>
+
+        <audio id="truck-aud">
+            <source src="./truck-honk.mp3" type="audio/mpeg">
+            Your browser does not support audio
+        </audio>
+
+        <audio id="pol-aud">
+            <source src="./police.mp3" type="audio/mpeg">
+            Your browser does not support audio
+        </audio>
+
+        <div id="container">
+            <img src="tansport.png" style="width: 100%; height: auto;">
+
+            <button id="train-btn" onclick="playAudio()">Play</button>
+            <button id="motorcycle-btn" onclick="playAudioB()">Play</button>
+            <button id="car-btn" onclick="playAudioC()">Play</button>
+            <button id="truck-btn" onclick="playAudioD()">Play</button>
+            <button id="pol-btn" onclick="playAudioE()">Play</button>
+        </div>
+
+        <script>
+            let trainAud = document.getElementById("train-aud");
+            function playAudio(){
+                trainAud.play();
+            }
+
+            let motorAud = document.getElementById("motor-aud");
+            function playAudioB(){
+                motorAud.play();
+            }
+
+            let carAud = document.getElementById("car-aud");
+            function playAudioC(){
+                carAud.play();
+            }
+
+            let truckAud = document.getElementById("truck-aud");
+            function playAudioD(){
+                truckAud.play();
+            }
+
+            let polAud = document.getElementById("pol-aud");
+            function playAudioE(){
+                polAud.play();
+            }
+
+        </script>
+        
+
+        <footer>
+            <p id="foot-p">
+                <a id="foot-a" href="../../index.html">Home</a>
+            </p>
+        </footer>
+    </body>
+</html>
+
